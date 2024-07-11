@@ -6,9 +6,13 @@ from django.conf.global_settings import AUTH_USER_MODEL
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.name
 
-def __str__(self):
-    return self.name
+
+
+
+
 
 class ProjectStatus(models.IntegerChoices):
         PENDING = 1, 'pending'
@@ -24,7 +28,12 @@ class Project(models.Model):
         created_at = models.DateTimeField(auto_now_add=True)
         updated_at = models.DateTimeField(auto_now=True)
         category = models.ForeignKey(Category, on_delete=models.PROTECT)
-        user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+        user = models.ForeignKey(
+            AUTH_USER_MODEL,
+            on_delete=models.CASCADE,
+        null=True
+        )
+
 
         def __str__(self):
             return self.title
