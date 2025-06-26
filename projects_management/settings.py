@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'accounts',
     'projects',
 ]
@@ -81,7 +82,7 @@ DATABASES = {
         'NAME': 'django_pm',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST':'localhost',
+        'HOST': 'localhost',
         'PORT': '5433',
     }
 }
